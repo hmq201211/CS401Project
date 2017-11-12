@@ -1,59 +1,112 @@
 package bean;
 
-public class Coupon {
-	private String provider;
-	private String nameOfProduct;
-	private int priceOfProduct;
-	private int rateOfDiscount;
-	private int expirationPeriod;
-	private boolean isUsed;
+public class Coupon implements Comparable<Coupon> {
+    private String provider;
+    private String nameOfProduct;
+    private int priceOfProduct;
+    private double rateOfDiscount;
+    private int expirationPeriod;
+    private boolean isUsed;
 
-	public String getProvider() {
-		return provider;
-	}
 
-	public void setProvider(String provider) {
-		this.provider = provider;
-	}
+    public Coupon() {
+    }
 
-	public String getNameOfProduct() {
-		return nameOfProduct;
-	}
+    public Coupon(String provider, String nameOfProduct, int priceOfProduct, double rateOfDiscount, int expirationPeriod, boolean isUsed) {
+        this.provider = provider;
+        this.nameOfProduct = nameOfProduct;
+        this.priceOfProduct = priceOfProduct;
+        this.rateOfDiscount = rateOfDiscount;
+        this.expirationPeriod = expirationPeriod;
+        this.isUsed = isUsed;
+    }
 
-	public void setNameOfProduct(String nameOfProduct) {
-		this.nameOfProduct = nameOfProduct;
-	}
+    public String getProvider() {
+        return provider;
+    }
 
-	public int getPriceOfProduct() {
-		return priceOfProduct;
-	}
+    public void setProvider(String provider) {
+        this.provider = provider;
+    }
 
-	public void setPriceOfProduct(int priceOfProduct) {
-		this.priceOfProduct = priceOfProduct;
-	}
+    public String getNameOfProduct() {
+        return nameOfProduct;
+    }
 
-	public int getRateOfDiscount() {
-		return rateOfDiscount;
-	}
+    public void setNameOfProduct(String nameOfProduct) {
+        this.nameOfProduct = nameOfProduct;
+    }
 
-	public void setRateOfDiscount(int rateOfDiscount) {
-		this.rateOfDiscount = rateOfDiscount;
-	}
+    public int getPriceOfProduct() {
+        return priceOfProduct;
+    }
 
-	public int getExpirationPeriod() {
-		return expirationPeriod;
-	}
+    public void setPriceOfProduct(int priceOfProduct) {
+        this.priceOfProduct = priceOfProduct;
+    }
 
-	public void setExpirationPeriod(int expirationPeriod) {
-		this.expirationPeriod = expirationPeriod;
-	}
+    public double getRateOfDiscount() {
+        return rateOfDiscount;
+    }
 
-	public boolean isUsed() {
-		return isUsed;
-	}
+    public void setRateOfDiscount(double rateOfDiscount) {
+        this.rateOfDiscount = rateOfDiscount;
+    }
 
-	public void setUsed(boolean isUsed) {
-		this.isUsed = isUsed;
-	}
+    public int getExpirationPeriod() {
+        return expirationPeriod;
+    }
 
+    public void setExpirationPeriod(int expirationPeriod) {
+        this.expirationPeriod = expirationPeriod;
+    }
+
+    public boolean isUsed() {
+        return isUsed;
+    }
+
+    public void setUsed(boolean isUsed) {
+        this.isUsed = isUsed;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Coupon coupon = (Coupon) o;
+
+        if (priceOfProduct != coupon.priceOfProduct) return false;
+        if (Double.compare(coupon.rateOfDiscount, rateOfDiscount) != 0) return false;
+        if (expirationPeriod != coupon.expirationPeriod) return false;
+        if (isUsed != coupon.isUsed) return false;
+        if (provider != null ? !provider.equals(coupon.provider) : coupon.provider != null) return false;
+        return nameOfProduct != null ? nameOfProduct.equals(coupon.nameOfProduct) : coupon.nameOfProduct == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result;
+        long temp;
+        result = provider != null ? provider.hashCode() : 0;
+        result = 31 * result + (nameOfProduct != null ? nameOfProduct.hashCode() : 0);
+        result = 31 * result + priceOfProduct;
+        temp = Double.doubleToLongBits(rateOfDiscount);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + expirationPeriod;
+        result = 31 * result + (isUsed ? 1 : 0);
+        return result;
+    }
+
+    @Override
+    public int compareTo(Coupon o) {
+        return this.provider.compareTo(o.provider);
+    }
+
+    @Override
+    public String toString() {
+        return
+                provider +" "+ nameOfProduct +" "+ priceOfProduct +" "+ rateOfDiscount +" "+ expirationPeriod +" "+ isUsed;
+    }
 }
