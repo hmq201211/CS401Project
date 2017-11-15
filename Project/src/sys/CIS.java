@@ -71,6 +71,7 @@ public class CIS {
         UL.add(new Coupon("APPLE", "Phone", 999, 0.23, 47, true));
         UL.add(new Coupon("SAMSUNG", "Phone", 790, 0.24, 56, false));
         UL.add(new Coupon("SAMSUNG", "TV", 589, 0.27, 103, false));
+        UL.add(new Coupon("SAMSUNG", "TV", 589, 0.27, 103, false));
 
     }
 

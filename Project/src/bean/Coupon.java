@@ -100,10 +100,48 @@ public class Coupon implements Comparable<Coupon> {
         return result;
     }
 
-    //the default compare method based on provider
+    //the default compare method
     @Override
     public int compareTo(Coupon o) {
-        return this.provider.compareTo(o.provider);
+        int toReturn=0;
+        if(provider.compareTo(o.getProvider())>0){
+            toReturn=1;
+        }else if(provider.compareTo(o.getProvider())<0){
+            toReturn=-1;
+        }else {
+            if (nameOfProduct.compareTo(o.getNameOfProduct())>0){
+                toReturn=1;
+            }else if(nameOfProduct.compareTo(o.getNameOfProduct())<0){
+                toReturn=-1;
+            }else {
+                if(priceOfProduct>o.getPriceOfProduct()){
+                    toReturn=1;
+                }else if(priceOfProduct<o.getPriceOfProduct()){
+                    toReturn=-1;
+                }else {
+                    if(rateOfDiscount>o.getRateOfDiscount()){
+                        toReturn=1;
+                    }else if(rateOfDiscount<o.getRateOfDiscount()){
+                        toReturn=-1;
+                    }else{
+                        if(expirationPeriod>o.getExpirationPeriod()){
+                            toReturn=1;
+                        }else if(expirationPeriod<o.getExpirationPeriod()) {
+                            toReturn=-1;
+                        }else {
+                            if (Boolean.compare(isUsed,o.isUsed())>0){
+                                toReturn=1;
+                            }else if(Boolean.compare(isUsed,o.isUsed())<0){
+                                toReturn=-1;
+                            }else {
+                                toReturn=0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return toReturn;
     }
 
     @Override
