@@ -8,6 +8,7 @@ import java.awt.event.*;
 import java.util.Enumeration;
 
 public class Main {
+    //the elements of the GUI
     private JButton useItAsapButton;
     private JButton deleteCouponButton;
     private JButton searchCouponsButton;
@@ -27,15 +28,10 @@ public class Main {
     private ButtonGroup buttonGroup1;
 
     public Main() {
-
+//initiate the Swing
         textField2.setText(CIS.asap());
         textField1.setText("String String int double(0<?<1) int boolean");
-        useItAsapButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
+        //add listener to the button
         listCouponsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -54,45 +50,48 @@ public class Main {
                 textArea1.setText(restult);
             }
         });
+        //add listener to the button
         insertCouponButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                  String temp=textField1.getText();
-                  if(verify(temp)){
-                      CIS.add(temp);
-                      textField1.setText("you have successfully added "+temp);
-                  }else{
-                      textField1.setText("your input format is wrong");
-                  }
+                String temp = textField1.getText();
+                if (verify(temp)) {
+                    CIS.add(temp);
+                    textField1.setText("you have successfully added " + temp);
+                } else {
+                    textField1.setText("your input format is wrong");
+                }
             }
         });
+        //add listener to the button
         searchCouponsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String temp=textField1.getText();
-                if(verify(temp)){
-                   String s= CIS.search(temp);
+                String temp = textField1.getText();
+                if (verify(temp)) {
+                    String s = CIS.search(temp);
                     textField1.setText("the result is down below");
                     textArea1.setText(s);
-                }else{
+                } else {
                     textField1.setText("your input format is wrong");
                 }
 
             }
         });
+        //add listener to the button
         deleteCouponButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String temp=textField1.getText();
-                if(verify(temp)){
-                   String s= CIS.delete(temp);
+                String temp = textField1.getText();
+                if (verify(temp)) {
+                    String s = CIS.delete(temp);
                     textField1.setText(s);
-                }else{
+                } else {
                     textField1.setText("your input format is wrong");
                 }
             }
         });
-
+//add listener to the button
         useItAsapButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -101,9 +100,7 @@ public class Main {
                 textField2.setText(s);
             }
         });
-
-        textField1.addMouseMotionListener(new MouseMotionAdapter() {
-        });
+        //add listener to the button
         textField1.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
@@ -112,9 +109,11 @@ public class Main {
         });
 
     }
+
+    // private method which used to find out that whether the format of the String is correct or not
     private boolean verify(String s) {
         String[] s1 = s.split(" ");
-        if(s1.length<6){
+        if (s1.length < 6) {
             return false;
         }
         if (s1[0] instanceof String && s1[1] instanceof String) {
@@ -134,10 +133,10 @@ public class Main {
             }
 
         }
-return false;
+        return false;
     }
 
-
+    // the main approach to start the GUI and in the meantime, start the system
     public static void main(String[] args) {
         JFrame frame = new JFrame("Coupon Inventory System");
         frame.setContentPane(new Main().jp);

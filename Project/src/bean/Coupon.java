@@ -1,12 +1,12 @@
 package bean;
 
 public class Coupon implements Comparable<Coupon> {
-    private String provider;
-    private String nameOfProduct;
-    private int priceOfProduct;
-    private double rateOfDiscount;
-    private int expirationPeriod;
-    private boolean isUsed;
+    private String provider;//the name of the coupon provider
+    private String nameOfProduct;// the name of the product
+    private int priceOfProduct;//the price of the product
+    private double rateOfDiscount;//the discount of the product
+    private int expirationPeriod;//the expiration period for the coupon
+    private boolean isUsed;//the status of the coupon
 
 
     public Coupon() {
@@ -21,6 +21,7 @@ public class Coupon implements Comparable<Coupon> {
         this.isUsed = isUsed;
     }
 
+    //the setters and getters for the above attributes
     public String getProvider() {
         return provider;
     }
@@ -99,6 +100,7 @@ public class Coupon implements Comparable<Coupon> {
         return result;
     }
 
+    //the default compare method based on provider
     @Override
     public int compareTo(Coupon o) {
         return this.provider.compareTo(o.provider);
@@ -107,6 +109,6 @@ public class Coupon implements Comparable<Coupon> {
     @Override
     public String toString() {
         return
-                provider +" "+ nameOfProduct +" "+ priceOfProduct +" "+ rateOfDiscount +" "+ expirationPeriod +" "+ isUsed;
+                provider + " " + nameOfProduct + " " + priceOfProduct + " " + rateOfDiscount + " " + expirationPeriod + " " + isUsed;
     }
 }

@@ -76,7 +76,7 @@
           <component id="d17c6" class="javax.swing.JTextArea" binding="textArea1" default-binding="true">
             <constraints/>
             <properties>
-              <rows value="30"/>
+              <rows value="10"/>
             </properties>
           </component>
         </children>

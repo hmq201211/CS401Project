@@ -1,16 +1,18 @@
 package binarySearchTree;
 
 public class BSTNode<T> {
-    private T info;
-    private BSTNode<T> left;
-    private BSTNode<T> right;
+    private T info;//the information which the node contains
+    private BSTNode<T> left;// the node which smaller than the node
+    private BSTNode<T> right;// the node which bigger than the node
 
+    // the constructor
     public BSTNode(T info) {
         this.info = info;
         this.left = null;
         this.right = null;
     }
 
+    //the setters and getter methods
     public T getInfo() {
         return info;
     }

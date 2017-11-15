@@ -3,8 +3,9 @@ package list;
 import java.util.Comparator;
 
 public class SortedLinkedList<T extends Comparable<T>> extends UnSortedLinkedList<T> {
-    private Comparator<T> comp;
+    private Comparator<T> comp;//the comparator which help to sort the list
 
+    //the constructors
     public SortedLinkedList() {
         comp = new Comparator<T>() {
             @Override
@@ -18,6 +19,7 @@ public class SortedLinkedList<T extends Comparable<T>> extends UnSortedLinkedLis
         this.comp = comp;
     }
 
+    //override the add method which obtain from UnsortedLinkedList
     public boolean add(T target) {
         if (numElements == 0) {
             head = new Node<T>(target);
@@ -56,6 +58,7 @@ public class SortedLinkedList<T extends Comparable<T>> extends UnSortedLinkedLis
 
     }
 
+    //myFind method which returns the SortedLinkedList which contains the indexes of the targets
     public SortedLinkedList<Integer> myFind(T target) {
         SortedLinkedList<Integer> sll = new SortedLinkedList<Integer>();
         location = head;

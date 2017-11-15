@@ -1,28 +1,30 @@
 package queue;
 
 public class LLNode<T> {
-	private T element;
-	private LLNode<T> link;
+    private T element;//the information which the node contains
+    private LLNode<T> link;//the node which connects to the node
 
-	public LLNode(T element) {
-		this.element = element;
-		this.link = null;
-	}
+    //the constructor
+    public LLNode(T element) {
+        this.element = element;
+        this.link = null;
+    }
 
-	public void setElement(T element) {
-		this.element = element;
-	}
+    //the setters and getters
+    public void setElement(T element) {
+        this.element = element;
+    }
 
-	public T getElement() {
-		return this.element;
-	}
+    public T getElement() {
+        return this.element;
+    }
 
-	public void setLink(LLNode<T> newNode) {
-		this.link = newNode;
-	}
+    public void setLink(LLNode<T> newNode) {
+        this.link = newNode;
+    }
 
-	public LLNode<T> getLink() {
-		return this.link;
-	}
+    public LLNode<T> getLink() {
+        return this.link;
+    }
 
 }
