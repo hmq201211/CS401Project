@@ -15,7 +15,13 @@ public class CIS {
     public static UnSortedLinkedList<Coupon> UL = new UnSortedLinkedList<Coupon>();
     public static SortedLinkedList<Coupon> SL = new SortedLinkedList<Coupon>();
     public static BinarySearchTree<Coupon> BST = new BinarySearchTree<Coupon>();
-    //initiate 5 comparators which are based on different attributes
+    //initiate 6 comparators which are based on different attributes
+    public static final Comparator<Coupon> CPBProvider = new Comparator<Coupon>() {
+        @Override
+        public int compare(Coupon o1, Coupon o2) {
+            return o1.getProvider().compareTo(o2.getProvider());
+        }
+    };
     public static final Comparator<Coupon> CPBNameOfProduct = new Comparator<Coupon>() {
         @Override
         public int compare(Coupon o1, Coupon o2) {
@@ -154,6 +160,9 @@ public class CIS {
         }
         Comparator<Coupon> comp = null;
         switch (s) {
+            case "provider":
+                comp=CPBProvider;
+                break;
             case "name":
                 comp = CPBNameOfProduct;
                 break;
@@ -186,7 +195,7 @@ public class CIS {
 
         Iterator<Coupon> iterator2 = BST.iterator();
         StringBuffer sb = new StringBuffer();
-        sb.append("According to the " + s + "order, we list the following items..\n");
+        sb.append("According to the " + s + " order, we list the following items..\n");
         sb.append("Provider Name price discount expiration use \n");
         while (iterator2.hasNext()) {
             sb.append(iterator2.next().toString() + "\n");

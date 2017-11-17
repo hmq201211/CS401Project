@@ -36,8 +36,8 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) {
                 textArea1.setText("");
-                String s = "provider";
-                String restult;
+                String s = "default";
+                String result;
                 Enumeration<AbstractButton> en = buttonGroup1.getElements();
                 while (en.hasMoreElements()) {
                     AbstractButton ab = en.nextElement();
@@ -46,8 +46,8 @@ public class Main {
                         break;
                     }
                 }
-                restult = CIS.list(s);
-                textArea1.setText(restult);
+                result = CIS.list(s);
+                textArea1.setText(result);
             }
         });
         //add listener to the button
